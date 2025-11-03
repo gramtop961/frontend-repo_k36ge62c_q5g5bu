@@ -34,7 +34,7 @@ export default function App() {
         <CTA />
       </main>
 
-      {/* Footer (inline) */}
+      {/* Footer */}
       <footer className="border-t border-white/10 bg-slate-950 py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-center text-sm text-white/60 md:flex-row md:text-left">
           <p>© {new Date().getFullYear()} Quantum Soul — Intelligence artificielle au service de votre croissance.</p>

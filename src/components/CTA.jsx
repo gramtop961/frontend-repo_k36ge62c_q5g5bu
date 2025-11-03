@@ -1,51 +1,82 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export default function CTA() {
   return (
-    <section id="contact" className="relative w-full bg-slate-950 py-20 text-white">
-      <div className="absolute inset-0 -z-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.12),transparent_60%)]" />
+    <section id="contact" className="relative w-full bg-slate-950 py-24 text-white">
+      {/* Decorative blurred orbs */}
+      <div className="pointer-events-none absolute left-[-10%] top-1/3 h-56 w-56 rounded-full bg-indigo-500/30 blur-3xl" />
+      <div className="pointer-events-none absolute right-[-10%] top-0 h-56 w-56 rounded-full bg-orange-400/20 blur-3xl" />
+
       <div className="relative mx-auto max-w-4xl px-6 text-center">
-        <h2 className="text-3xl font-semibold sm:text-4xl">Prêt à activer l'IA dans votre organisation ?</h2>
-        <p className="mx-auto mt-3 max-w-2xl text-white/70">
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-3xl font-semibold sm:text-4xl"
+        >
+          Prêt à activer l'IA dans votre organisation ?
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mx-auto mt-3 max-w-2xl text-white/70"
+        >
           Parlez-nous de vos objectifs. Nous proposons un atelier de cadrage de 60 minutes pour identifier rapidement
           les leviers prioritaires et un plan d'action concret.
-        </p>
+        </motion.p>
 
-        <form
+        <motion.form
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           onSubmit={(e) => e.preventDefault()}
-          className="mx-auto mt-8 grid w-full max-w-xl grid-cols-1 gap-3 sm:grid-cols-2"
+          className="mx-auto mt-8 w-full max-w-2xl rounded-2xl border border-white/10 bg-white/5 p-6 text-left shadow-[0_10px_40px_rgba(2,6,23,0.6)] backdrop-blur"
         >
-          <input
-            type="text"
-            required
-            placeholder="Nom et prénom"
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/50 outline-none ring-indigo-400/0 transition focus:ring-2"
-          />
-          <input
-            type="email"
-            required
-            placeholder="Email professionnel"
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/50 outline-none ring-indigo-400/0 transition focus:ring-2"
-          />
-          <input
-            type="text"
-            placeholder="Entreprise"
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/50 outline-none ring-indigo-400/0 transition focus:ring-2 sm:col-span-2"
-          />
-          <textarea
-            rows={4}
-            placeholder="Décrivez brièvement votre besoin"
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/50 outline-none ring-indigo-400/0 transition focus:ring-2 sm:col-span-2"
-          />
-          <div className="sm:col-span-2">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <input
+              type="text"
+              required
+              placeholder="Nom et prénom"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/50 outline-none ring-indigo-400/0 transition focus:ring-2"
+            />
+            <input
+              type="email"
+              required
+              placeholder="Email professionnel"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/50 outline-none ring-indigo-400/0 transition focus:ring-2"
+            />
+            <input
+              type="text"
+              placeholder="Entreprise"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/50 outline-none ring-indigo-400/0 transition focus:ring-2 sm:col-span-2"
+            />
+            <textarea
+              rows={4}
+              placeholder="Décrivez brièvement votre besoin"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/50 outline-none ring-indigo-400/0 transition focus:ring-2 sm:col-span-2"
+            />
+          </div>
+
+          <div className="mt-4 flex items-center gap-2 text-xs text-white/70">
+            <input id="consent" type="checkbox" className="h-4 w-4 rounded border-white/20 bg-white/5" />
+            <label htmlFor="consent">J'accepte d'être contacté.e et la politique de confidentialité.</label>
+          </div>
+
+          <div className="mt-6 flex flex-col items-center gap-3 sm:flex-row">
             <button
               type="submit"
-              className="w-full rounded-xl bg-gradient-to-r from-indigo-500 via-violet-500 to-orange-400 px-6 py-3 font-medium text-white shadow-lg shadow-indigo-500/30 transition hover:scale-[1.01]"
+              className="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-indigo-500 via-violet-500 to-orange-400 px-6 py-3 font-medium text-white shadow-lg shadow-indigo-500/30 transition hover:scale-[1.01] sm:w-auto"
             >
               Demander une consultation
             </button>
+            <span className="text-xs text-white/60">Réponse sous 24h ouvrées</span>
           </div>
-        </form>
+        </motion.form>
       </div>
     </section>
   );
