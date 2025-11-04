@@ -4,7 +4,7 @@ import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] w-full overflow-hidden bg-slate-950 text-white">
+    <section className="relative min-h-[95vh] w-full overflow-hidden bg-slate-950 text-white">
       {/* 3D Cover - full width */}
       <div className="absolute inset-0">
         <Spline
@@ -67,7 +67,7 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Glass stats */}
+        {/* Glass stats in hero */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,6 +89,15 @@ export default function Hero() {
             </div>
           ))}
         </motion.div>
+      </div>
+
+      {/* Atom image (decorative) */}
+      <div className="pointer-events-none absolute right-6 top-24 hidden max-w-[320px] md:block lg:right-12 lg:top-20">
+        <img
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=1200&auto=format&fit=crop"
+          alt="Atome quantique"
+          className="rounded-2xl border border-white/10 opacity-90 shadow-2xl"
+        />
       </div>
     </section>
   );
